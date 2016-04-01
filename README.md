@@ -17,7 +17,7 @@ There is much more to Docker than just deploying your flagship application. Let'
 
 The Rackspace CloudDNS team is running Hubot, a ChatOps bot, on Carina to automate routine tasks and ping the on-call when something is on fire at 3 AM.
 
-Rackspace's website is open to external contributors and has streamlined the submission process by building a staging website for pull requests. Each site runs in a Docker container automatically provisioned by Ansible on a CoreOS cluster.
+Rackspace's developer documentation is open to external contributors and has streamlined the editing process with a staging environment that hosts full site builds for pull requests. All of its infrastructure is hosted within Docker containers, managed by Ansible, on a CoreOS cluster.
 
 HowToWhale is teaching Docker with zero-setup from the comfort of your web browser. Every user has an interactive sandbox, courtesy of a Jupyter server running on their own personal Docker Swarm cluster.
 
