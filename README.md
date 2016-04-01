@@ -15,11 +15,11 @@ Think outside the container
 ## Abstract
 There is much more to Docker than just deploying your flagship application. Let's look at three use cases for Docker, going beyond the typical software development pipeline:
 
-The Rackspace CloudDNS team is running Hubot, a ChatOps bot, on Carina to automate routine tasks and ping the on-call when something is on fire at 3 AM.
+The Rackspace Cloud DNS production operations team is running Hubot, a ChatOps bot, on a Docker Swarm cluster on Carina to automate routine tasks and ping the on-call person when something is on fire at 3 AM.
 
-Rackspace's developer documentation is open to external contributors and has streamlined the editing process with a staging environment that hosts full site builds for pull requests. All of its infrastructure is hosted within Docker containers, managed by Ansible, on a CoreOS cluster.
+Rackspace's developer documentation is open to external contributors and has streamlined the editing process with a staging environment that previews full site builds for pull requests. All of its infrastructure is hosted within Docker containers, managed by Ansible, on a CoreOS cluster.
 
-HowToWhale is teaching Docker with zero-setup from the comfort of your web browser. Every user has an interactive sandbox, courtesy of a Jupyter server running on their own personal Docker Swarm cluster.
+HowToWhale is teaching Docker with zero-setup from the comfort of your web browser. Every user has an interactive sandbox, courtesy of a JupyterHub server running on their own personal Docker Swarm cluster.
 
 Come away with ideas for how you can use Docker on the side, even if you haven't tackled Dockerizing your application.
 
