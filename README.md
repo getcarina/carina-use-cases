@@ -15,7 +15,7 @@ Think outside the container
 ## Abstract
 There is much more to Docker than just deploying your flagship application. Let's look at three use cases for Docker, going beyond the typical software development pipeline:
 
-The Rackspace Cloud DNS production operations team is running Hubot, a ChatOps bot, on a Docker Swarm cluster on Carina to automate routine tasks and ping the on-call person when something is on fire at 3 AM.
+The Rackspace Cloud DNS product team is running a Hubot-based ChatOps bot on Carina to automate routine operational tasks in the open via a team-based chat.  The team successfully migrated this service from another provider and into Carina in under an hour from start to finish, including a datastore migration!
 
 Rackspace's developer documentation is open to external contributors and has streamlined the editing process with a staging environment that previews the full site on-demand for pull requests. All of its infrastructure is hosted within Docker containers, managed by Ansible, on a CoreOS cluster.
 
