@@ -71,6 +71,12 @@
 
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
+				keyboard: {
+					39: 'next', // Map next/previous for use with remote
+					37: 'prev',
+					190: null // Disable blank screen hell
+				},
+
 				// Optional reveal.js plugins
 				dependencies: [
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
