@@ -1,3 +1,40 @@
+<!--
+Outline:
+
+ * Deconst: What & Why
+   - developer.rackspace.com, support.rackspace.com, getcarina.com, docs.rackspace.com
+   - Before: different processes, different people
+   - What we didn't want: "We're using X now, everybody conform or be abandoned"
+   - Unify: infrastructure; content; templates, CSS, JS; search; metrics; logging
+   - Keep separate: GitHub repositories; documentation formats
+ * Preview comments!
+   - From very early: need to preview rendered content before it goes live
+   - Make a pull request on a content repository
+   - Bot account will post a link to a staging site
+ * System components:
+   - Content service: API for storing and retrieving "metadata envelopes" by content ID (a URI)
+   - Presenter: URL -> content ID, get the envelope from the content service, render it with a template
+   - Stateless containers behind a CLB; can scale horizontally as needed
+ * "Staging mode"
+   - Content service: Envelope not found? Cut first path segment, request from "upstream"
+   - Presenter: Ignore first path segment for content and template mapping purposes
+ * Strider
+   - Opensource CI/CD server
+   - Run a sequence of processes in Docker containers that mount a workspace DVC
+   - Docker is important here: Sphinx's conf.py or Jekyll plugins are arbitrary code!
+   - The "Preparer" runs Sphinx/Jekyll shimmed to output JSON files
+   - The "Submitter":
+     - queries the content API to see what's new
+     - build tarballs of new assets and new envelopes
+     - POST to the content API
+   - If the submitter submitted something, derive the destination link and post it to the PR
+ * The future
+   - Doctests! Spelling and grammar check, doubled words, match against a styleguide
+   - Comment errors and feedback on the PR itself
+   - Port to Carina
+
+-->
+
 <section id="deconst">
     <h2>This is a slide</h2>
     <ul>
