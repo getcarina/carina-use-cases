@@ -6,7 +6,7 @@
 
 		<title>Docker Use Cases</title>
 
-		<meta name="description" content="Docker for Fun and Profit: A look at three fun ways to use Docker">
+		<meta name="description" content="Think outside the container: A look at three fun ways to use Docker">
 		<meta name="author" content="Carolyn Van Slyck">
 
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -44,11 +44,63 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Using Docker for Fun and Profit</h1>
-					<h3>A look at how you can use Docker</h3>
+					<h1>Think outside the container</h1>
+					<h3>A look at three fun ways to use Docker</h3>
 					<p>
 						<small>Ash Wilson, Carolyn Van Slyck and Nick Silkey</small>
 					</p>
+				</section>
+
+				<section id="agenda">
+					<h2>Game Plan</h2>
+					<ul>
+						<li>Docker refresher</li>
+						<li>How the CloudDNS team is using ChatOps</li>
+						<li>Teaching Docker with JupyterHub and Carina</li>
+						<li>How the Developer Experience team builds, tests and deploys our websites</li>
+					</ul>
+
+					<aside class="notes">
+						* Moving your flagship application to Docker can be scary<br/>
+						* Let's start with the little things instead
+					</aside>
+				</section>
+
+				<section id="docker">
+					<h2>Docker in 60 seconds</h2>
+
+					<ul>
+						<li>Docker = Container Black Magic Voodoo</li>
+						<li>Docker Image = A packaged application
+							<ul>
+								<li>Minimal operating system</li>
+								<li>Source code</li>
+								<li>Dependencies</li>
+							</ul>
+						</li>
+						<li>Docker Container = An instance of an image</li>
+					</ul>
+
+					<pre style="width: 12em; margin-left: auto; margin-right: auto;"><code>$ docker run nginx</code></pre>
+
+					<aside class="notes">
+						What's involved in deploying a flask app<br/>
+						What that looks like with Docker
+					</aside>
+				</section>
+
+				<section id="carina">
+					<h2>Carina</h2>
+					<p>Docker as a Service</p>
+
+					<img src="images/carina-site.png" alt="Carina website screenshot" />
+
+					<p><a href="http://getcarina.com">getcarina.com</a></p>
+					<aside class="notes">
+						Secure place to run your containers<br/>
+						Push button Docker clusters<br/>
+						Free
+					</aside>
 				</section>
 
 				<section data-external="chatops.html"> </section>
