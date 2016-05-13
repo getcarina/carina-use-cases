@@ -1376,4 +1376,16 @@ html:-moz-full-screen-ancestor {
 	visibility: hidden;
 }
 
+/*********************************************
+ * CUSTOMIZATION
+ *********************************************/
 
+.reveal section img.borderless {
+	background: none;
+	border: none;
+}
+
+.reveal section span.highlight {
+	color: black;
+	background: yellow;
+}
