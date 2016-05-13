@@ -101,75 +101,7 @@ Outline:
   </aside>
 </section>
 
-<section id="deconst-5" data-transition="none-out">
-
-  <h2>System Components</h2>
-
-  <img src="https://cloud.githubusercontent.com/assets/17565/15224379/03679720-1847-11e6-87c4-2542a42242b8.png" alt="content service" class="borderless">
-
-  <p>
-    <code>
-      https://github.com/org/repo/posts/my-post
-    </code>
-  </p>
-
-  <aside class="notes">
-    <p>Deconst consists of two processes (in Docker containers)</p>
-    <p>Content service: CRUD API endpoints for content</p>
-    <p>Stores and indexes incoming documents, addressed by a "content ID"</p>
-    <p>For content IDs, we use URIs based on GitHub repo (but they really just have to be unique)</p>
-  </aside>
-</section>
-
-<section id="deconst-6" data-transition="none-in">
-
-  <h2>System Components</h2>
-
-  <img src="https://cloud.githubusercontent.com/assets/17565/15224382/063bf428-1847-11e6-93dd-c4cbd2fba0e8.png" alt="presenter" class="borderless">
-
-  <p>
-    <code>
-      /posts/my-post/ 👉 https://github.com/org/repo/blog/my-post
-    </code>
-  </p>
-
-  <aside class="notes">
-    <p>Presenter: map host + path to a content ID, get content, render with template</p>
-    <p>Mapping and templates are done in a "control repository"</p>
-  </aside>
-</section>
-
-<section id="deconst-7">
-
-  <h2>Staging mode</h2>
-
-  <p>
-    <code>
-      /<span class="highlight">build-123567</span>/posts/my-post/
-    </code>
-  </p>
-
-  <p>
-    <code>
-      https://github.com/<span class="highlight">build-123567</span>/org/repo/blog/my-post
-    </code>
-  </p>
-
-  <aside class="notes">
-    <p>
-      What we want: content submitted to staging with a build environment in its content ID is
-      rendered "over" the current content in production; the rest of the site is "hoisted" beneath
-      the build environment too
-    </p>
-    <p>In "staging mode", the first path component is treated as a "build environment"</p>
-    <p>Presenter yanks it off before mapping to a content ID + template</p>
-    <p>Content service checks for content locally</p>
-    <p>Proxies the request to production without the build env if it isn't found</p>
-    <p>How does it get there?</p>
-  </aside>
-</section>
-
-<section id="deconst-8">
+<section id="deconst-5">
 
   <img src="https://camo.githubusercontent.com/4cd1630dc1f92b698b4d99a530a7f24a4eea744a/68747470733a2f2f7261772e6769746875622e636f6d2f537472696465722d43442f737472696465722f6d61737465722f7075626c69632f696d616765732f746f705f6769746875622e706e67" alt="strider logo">
 
@@ -182,7 +114,7 @@ Outline:
   </aside>
 </section>
 
-<section id="deconst-9" data-transition="none-out">
+<section id="deconst-6" data-transition="none-out">
 
   <h2>Preparer</h2>
 
@@ -198,7 +130,7 @@ Outline:
   </aside>
 </section>
 
-<section id="deconst-10" data-transition="none-in">
+<section id="deconst-7" data-transition="none-in">
 
   <h2>Submitter</h2>
 
@@ -211,7 +143,7 @@ Outline:
   </aside>
 </section>
 
-<section id="deconst-11">
+<section id="deconst-8">
 
   <h2>Fin</h2>
 
