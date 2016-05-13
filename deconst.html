@@ -39,10 +39,29 @@ Outline:
   <aside class="notes">
     <p>These domains are all served by a single, open-source system called "Deconst"</p>
     <p>Not static sites</p>
+    <p>Each site managed independently by different processes</p>
+    <p>Making changes = hunting down the right person and sending email</p>
+    <p>Publishing = all over the place; some Jenkins, some manual</p>
   </aside>
 </section>
 
 <section id="deconst-2">
+
+  <h2>What we didn't want</h2>
+
+  <a href="https://xkcd.com/927/">
+    <img src="https://cloud.githubusercontent.com/assets/17565/15220287/e4a53ade-1834-11e6-9e70-a6d08b9a4f09.png" alt="obligatory XKCD">
+  </a>
+
+  <aside class="notes">
+    <p>Avoid "Hey everybody, spend loads of time converting all your docs into our one true format!"</p>
+    <p>Or even worse: "use the same tooling"</p>
+    <p>Unify: infrastructure; search; metrics and logging</p>
+    <p>Separate: GitHub repos; source formats</p>
+  </aside>
+</section>
+
+<section id="deconst-3">
 
   <h2>Deconst</h2>
   <h3>Deconstruct your documentation</h3>
@@ -56,72 +75,7 @@ Outline:
   </aside>
 </section>
 
-<section id="deconst-3">
-
-  <h1>The dark ages</h1>
-
-  <aside class="notes">
-    <p>Each site managed independently by different processes</p>
-    <p>Making changes = hunting down the right person and sending email</p>
-    <p>Publishing = all over the place; some Jenkins, some manual</p>
-  </aside>
-</section>
-
 <section id="deconst-4">
-
-  <h2>What we didn't want</h2>
-
-  <a href="https://xkcd.com/927/">
-    <img src="https://cloud.githubusercontent.com/assets/17565/15220287/e4a53ade-1834-11e6-9e70-a6d08b9a4f09.png" alt="obligatory XKCD">
-  </a>
-
-  <aside class="notes">
-    <p>"Hey everybody, spend loads of time converting all your docs into our one true format!"</p>
-    <p>Or even worse: tooling</p>
-  </aside>
-</section>
-
-<section id="deconst-5">
-
-  <h2>Unify</h2>
-
-  <section tagcloud large>
-    <span tagcloud-weight="40">infrastructure </span>
-    <span tagcloud-weight="10">storage </span>
-    <span tagcloud-weight="40">templates </span>
-    <span tagcloud-weight="20">CSS </span>
-    <span tagcloud-weight="20">JS </span>
-    <span tagcloud-weight="50">search </span>
-    <span tagcloud-weight="30">metrics </span>
-    <span tagcloud-weight="30">logging </span>
-  </section>
-
-  <aside class="notes">
-    <p>Reasons to bring everything together</p>
-  </aside>
-</section>
-
-<section id="deconst-6">
-
-  <h2>Separate</h2>
-
-  <section tagcloud large>
-    <span tagcloud-weight="40">github repositories </span>
-    <span tagcloud-weight="30">text editors </span>
-    <span tagcloud-weight="50">documentation formats </span>
-    <span tagcloud-weight="30">processes </span>
-  </section>
-
-  <aside class="notes">
-    <p>Things we wanted to leave alone as much as possible</p>
-    <p>Working in a monorepo made builds really slow and led to distracting cross-chatter in issues, etc</p>
-    <p>Sphinx is better for multi-page docs with a TOC</p>
-    <p>Jekyll is built for blogs</p>
-    <p>Process: there is "process sugar" to encourage working on GitHub and deploy continuously</p>
-  </aside>
-</section>
-
-<section id="deconst-7">
 
   <h2>Preview links</h2>
 
@@ -136,7 +90,7 @@ Outline:
   </aside>
 </section>
 
-<section id="deconst-8" data-transition="none" >
+<section id="deconst-5" data-transition="none" >
 
   <h2>System Components</h2>
 
@@ -156,7 +110,7 @@ Outline:
   </aside>
 </section>
 
-<section id="deconst-9">
+<section id="deconst-6">
 
   <h2>System Components</h2>
 
@@ -170,10 +124,11 @@ Outline:
 
   <aside class="notes">
     <p>Presenter: map host + path to a content ID, get content, render with template</p>
+    <p>Mapping and templates are done in a "control repository"</p>
   </aside>
 </section>
 
-<section id="deconst-10">
+<section id="deconst-7">
 
   <h2>Staging mode</h2>
 
@@ -190,39 +145,40 @@ Outline:
   </p>
 
   <aside class="notes">
+    <p>
+      What we want: content submitted to staging with a build environment in its content ID is
+      rendered "over" the current content in production; the rest of the site is "hoisted" beneath
+      the build environment too
+    </p>
     <p>In "staging mode", the first path component is treated as a "build environment"</p>
     <p>Presenter yanks it off before mapping to a content ID + template</p>
     <p>Content service checks for content locally</p>
     <p>Proxies the request to production without the build env if it isn't found</p>
-    <p>
-      The outcome: content submitted to staging with a build environment in its content ID is
-      rendered "over" the current content in production; the rest of the site is "hoisted" beneath
-      the build environment too
-    </p>
+    <p>How does it get there?</p>
   </aside>
 </section>
 
-<section id="deconst-11">
+<section id="deconst-8">
 
   <img src="https://camo.githubusercontent.com/4cd1630dc1f92b698b4d99a530a7f24a4eea744a/68747470733a2f2f7261772e6769746875622e636f6d2f537472696465722d43442f737472696465722f6d61737465722f7075626c69632f696d616765732f746f705f6769746875622e706e67" alt="strider logo">
 
   <p><a href="https://github.com/Strider-CD/strider">github.com/Strider-CD/strider</a></p>
 
   <aside class="notes">
-    <p>How does it get there?</p>
     <p>Opensource CI/CD software called "Strider"</p>
     <p>Chosen because it's nice and twelve-factor, customizable</p>
+    <p>Custom build plugins for content and control repositories</p>
   </aside>
 </section>
 
-<section id="deconst-12" data-transition="none">
+<section id="deconst-9" data-transition="none">
 
   <h2>Preparer</h2>
 
   <img src="https://cloud.githubusercontent.com/assets/17565/15226195/b4b1b742-184f-11e6-80cf-bcb6e2cea27e.png" alt="preparer" class="borderless">
 
   <aside class="notes">
-    <p>Custom Strider build plugin run two Docker containers in sequence</p>
+    <p>Strider content build plugin runs two Docker containers in sequence</p>
     <p>First is the "preparer"</p>
     <p>An adapter between the host doc system and the JSON format the content service understands</p>
     <p>Writes assets and JSON documents to directories within a workspace volume</p>
@@ -231,7 +187,7 @@ Outline:
   </aside>
 </section>
 
-<section id="deconst-13" data-transition="none">
+<section id="deconst-10" data-transition="none">
 
   <h2>Submitter</h2>
 
@@ -244,7 +200,7 @@ Outline:
   </aside>
 </section>
 
-<section id="deconst-14" data-transition="none">
+<section id="deconst-11">
 
   <h2>Fin</h2>
 
