@@ -25,7 +25,7 @@ Come away with ideas for how you can use Docker on the side, even if you haven't
 
 ## Agenda
 * Intro: 5 minutes
-* ChatOps with Nick: 10 minutes. How the CloudDNS team is using ChatOps on Carina
+* ChatOps with Nick: 10 minutes. How the Cloud DNS team is using ChatOps on Carina
 * Deconst with Ash: 10 minutes. How the Developer Experience team builds, tests and deploys our websites using Carina
 * HowToWhale with Carolyn: 10 minutes. Learning Docker on with JupyterHub and Carina
 * Q/A: 5 minutes
